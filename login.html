@@ -4,10 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <img src="Scrumbucks.png" alt="logo" width="10%" height="10%">
+    <a href="homepage.html"> <img src="Scrumbucks.png" alt="logo" width="10%" height="10%"> </a>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
+
 <body>
-    <h1>Login</h1>
-    <a href="homepage.html">Leaderboard</a>
+    <h1 class="center">Login</h1>
+    <form id="loginForm" class="center">
+        <label for="username">Username</label>
+        <input type="text" placeholder="Enter username" name="username" required>
+        <br>
+        <label for="password">Password</label>
+        <input type="text" placeholder="Enter password" name="password" required>
+        <br>
+        <a href="homepage.html"> <button type="submit">Login</button> </a>
+    </form>
+
 </body>
 </html>
