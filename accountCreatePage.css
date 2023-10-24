@@ -1,0 +1,66 @@
+/* accountCreatePage.css */
+body {
+    background-color: rgb(112, 94, 69); /* Light beige background color for the entire page */
+}
+
+header {
+    display: flex;
+    align-items: center;
+}
+
+header img {
+    margin-right: 20px; /* Adjust the margin as needed */
+}
+
+h1.center {
+    font-size: 35px; /* Increase font size for the header */
+    color: #c3c1bb; /* Text color for the header */
+}
+
+.account-create {
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+    background-color: #f0f0f0; /* Gray background color for the form */
+    border: 2px solid #ccc; /* Gray border around the form */
+    border-radius: 10px; /* Rounded corners for the form */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1); /* Drop shadow for the form */
+}
+
+.form-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+}
+
+label {
+    flex-basis: 30%;
+    text-align: right;
+    margin-right: 10px;
+    color: #333; /* Text color for labels */
+}
+
+input {
+    flex-basis: 60%;
+    padding: 10px;
+    border: 1px solid #ccc; /* Gray border for input fields */
+    border-radius: 5px; /* Rounded corners for input fields */
+    background-color: #f8f8f8; /* Light gray background color for input fields */
+    color: #333; /* Text color for input fields */
+}
+
+button {
+    background-color: #007acc; /* Background color for the button */
+    color: #fff; /* Text color for the button */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #005ca5; /* Background color on hover */
+}
