@@ -27,3 +27,43 @@ h1 {
     width: 300px;
     margin: 0 auto;
 }
+
+.task-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.task-item {
+    text-align: center;
+    max-width: 30%; /* Adjust as needed to control the width of each task item */
+}
+
+.task-item h2 {
+    text-align: center;
+    font-family: system-ui;
+}
+
+.task-item img {
+    width: 100%; /* Set the width to 100% to make them fill the available space */
+    height: auto;
+    display: block;
+    padding-bottom: 10px;
+}
+
+.task-item p {
+    text-align: center;
+    font-family: system-ui;
+}
+
+button {
+    background-color: #007acc; /* Background color for the button */
+    color: #fff; /* Text color for the button */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
