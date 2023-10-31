@@ -1,0 +1,79 @@
+<html>
+<head>
+    <title>Login Page</title>
+</head>
+<body>
+    <h1>Login</h1>
+    <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" required><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" required><br>
+        <button type="submit">Login</button>
+    </form>
+    <h2>New User? Create an account.</h2>
+    <button type="button" id="createAccountButton">Create Account</button>
+    <p id="message"></p>
+    <script>
+        // Define an object to store username and password pairs.
+        const credentials = {
+            "anthony": "password",
+            "ana": "password",
+            "srujan": "password",
+            "huan": "password",
+            "jacobe": "password",
+            "vanessa": "password",
+        };
+    
+        // Function to create a new account and add it to the credentials object.
+        function createAccount() {
+            const newUsername = prompt("Enter a new username:");
+            const newPassword = prompt("Enter a password for the new account:");
+            
+            if (newUsername && newPassword) {
+                credentials[newUsername] = newPassword;
+                alert("Account created successfully!");
+            } else {
+                alert("Account creation canceled.");
+            }
+        }
+    
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+    
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+    
+            // Check if the entered username exists in the credentials object.
+            if (credentials.hasOwnProperty(username)) {
+                // Check if the entered password matches the stored password for the username.
+                if (password === credentials[username]) {
+                    localStorage.setItem("loggedIn", "true");
+                    localStorage.setItem("username", username);
+                    document.getElementById("message").textContent = "Login successful! Redirecting...";
+    
+                    // Redirect to the new page after a brief delay.
+                    setTimeout(function() {
+                        window.location.href = "nextPage.html";
+                    }, 2000); // 2000 milliseconds (2 seconds) delay
+                } else {
+                    document.getElementById("message").textContent = "Incorrect password. Please try again.";
+                }
+            } else {
+                document.getElementById("message").textContent = "Username not found. Please try again.";
+            }
+        });
+    
+        // window.addEventListener("load", function() {
+        //     const loggedIn = localStorage.getItem("loggedIn");
+        //     if (loggedIn === "true") {
+        //         const username = localStorage.getItem("username");
+        //         document.getElementById("message").textContent = `Welcome back, ${username}!`;
+        //     }
+        // });
+    
+        // Add an event listener for the "Create Account" button.
+        document.getElementById("createAccountButton").addEventListener("click", createAccount);
+    </script>
+</body>
+</html>
