@@ -1,29 +1,31 @@
 const credentials = {
     "anthony": {
         password: "password",
-        points: 0
+        points: 5
     },
     "ana": {
         password: "password",
-        points: 0
+        points: 6
     },
     "srujan": {
         password: "password",
-        points: 0
+        points: 4
     },
     "huan": {
         password: "password",
-        points: 0
+        points: 5
     },
     "jacob": {
         password: "password",
-        points: 0
+        points: 4
     },
     "vanessa": {
         password: "password",
-        points: 0
+        points: 6
     },
 };
 
-// Store the credentials in localStorage
-localStorage.setItem('credentials', JSON.stringify(credentials));
+// Store the credentials in localStorage (if not already stored)
+if (!localStorage.getItem('credentials')) {
+    localStorage.setItem('credentials', JSON.stringify(credentials));
+}
