@@ -9,9 +9,28 @@
 <body>
     <header>
         <a href="homepage.html"> <img src="Scrumbucks.png" alt="logo" width="150px" height="150px"> </a>
-        <h1 class="center">Homepage/Leaderboard</h1>
+        <h1 class="center">Welcome!</h1>
+        <button onclick="window.location='login.html'" class="logout">Log Out</button>
+
     </header>
 
+    <p class="homeText">
+        Use this site to keep track of your mentees' progess for the month.
+        Here you can access all tasks mentees are required to learn. 
+        Mentors use the task page to input all completed tasks. 
+        Completed tasks have an assigned point value. 
+        The mentor and mentee pairs that have the largest amount of points will be shown on the leaderboard. 
+        Remember, the #1 team will receive a prize! Keep up the good work! 
+    </p>
+
+    <div class="flex-parent jc-center">
+        <button onclick="window.location='taskPageMentor.html'" class="homeBtn margin-right">Task Page</button>
+        <button onclick="window.location='taskPageMentee.html'" class="homeBtn">Leaderboard</button>
+    </div>
+</body>
+
+<!-- footer to be removed once build is complete-->
+<footer>
     <!-- temporary navigation buttons -->
     <h3>Temporary Navigation Buttons</h3>
     <button onclick="window.location='taskPageMentee.html'">Mentee Task Page</button>
@@ -19,14 +38,5 @@
     <button onclick="window.location='login.html'">Login Page</button>
     <button onclick="window.location='accountCreate.html'">Create Account Page</button>
 
-    <h1>Leaderboard</h1>
-    <ol>
-        <li>User</li>
-        <li>User2</li>
-        <li>User3</li>
-    </ol>
-
-
-    <a href="taskpage.html">Tasks</a>
-</body>
+</footer>
 </html>

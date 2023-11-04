@@ -67,3 +67,32 @@ button {
     cursor: pointer;
     transition: background-color 0.3s;
 }
+
+.homeBtn {
+    background-color: #006241;
+    margin: auto;
+    display: grid;
+}
+
+.logout {
+    float: right;
+    background-color: #006241;
+}
+
+.flex-parent {
+    display: flex;
+}
+
+.jc-center {
+    justify-content: center;
+}
+
+button.margin-right {
+    margin-right: 10%;
+}
+
+.homeText {
+    margin: 5% 10%;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+}
