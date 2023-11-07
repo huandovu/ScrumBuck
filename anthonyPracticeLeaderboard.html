@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leaderboard</title>
+    <style>
+        .leaderboard {
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 300px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="homepage.html"> <img src="Scrumbucks.png" alt="logo" width="150px" height="150px"> </a>
+        <button onclick="window.location='login.html'" class="logout">Log Out</button>
+    </header>
+    <h1>Anthony's Practice Leaderboard</h1>
+
+    <!-- Dropdown list to select a name -->
+    <label for="nameSelect">Select a name:</label>
+    <select id="nameSelect">
+        <option value="anthony">Anthony</option>
+        <option value="ana">Ana</option>
+        <option value="srujan">Srujan</option>
+        <option value="huan">Huan</option>
+        <option value="jacob">Jacob</option>
+        <option value="vanessa">Vanessa</option>
+    </select>
+
+    <!-- "Add" button to add points -->
+    <button id="addButton">Add</button>
+
+    <!-- Leaderboard to display points -->
+    <div class="leaderboard">
+        <h2>Leaderboard</h2>
+        <ul id="pointsList">
+        </ul>
+    </div>
+
+    <script>
+        // Load leaderboard data from local storage
+        const leaderboardData = JSON.parse(localStorage.getItem('leaderboardData')) || {};
+
+        const pointsList = document.getElementById('pointsList');
+
+        // Function to update the leaderboard with the latest data
+        function updateLeaderboard() {
+            // Clear the existing leaderboard
+            pointsList.innerHTML = '';
+
+            // Sort leaderboard data by points (greatest to least)
+            const sortedData = Object.entries(leaderboardData).sort((a, b) => b[1] - a[1]);
+
+            // Create leaderboard items from the sorted data
+            for (const [name, points] of sortedData) {
+                const pointsItem = document.createElement('li');
+                pointsItem.textContent = `${name}: ${points} point${points !== 1 ? 's' : ''}`;
+                pointsList.appendChild(pointsItem);
+            }
+        }
+
+        // Initial leaderboard update
+        updateLeaderboard();
+
+        // Function to add a point to the selected name
+        document.getElementById('addButton').addEventListener('click', function () {
+            const selectedName = document.getElementById('nameSelect').value;
+
+            // Update the data in memory
+            leaderboardData[selectedName] = (leaderboardData[selectedName] || 0) + 1;
+
+            // Save the updated leaderboard data to local storage
+            localStorage.setItem('leaderboardData', JSON.stringify(leaderboardData));
+
+            // Update the leaderboard display
+            updateLeaderboard();
+        });
+    </script>
+</body>
+</html>
+
+<!-- STEPS TO CLEAR LOCAL STORAGE -->
+<!-- Open your web browser.
+
+Access the browser's developer tools. You can typically do this by right-clicking on a web page and selecting "Inspect" or "Inspect Element," or by using a keyboard shortcut like:
+
+Chrome: Press Ctrl + Shift + I (or Cmd + Option + I on macOS).
+Firefox: Press Ctrl + Shift + I (or Cmd + Option + I on macOS).
+Edge: Press F12 or Ctrl + Shift + I.
+Safari: Open "Safari" -> "Preferences" -> "Advanced" -> Check "Show Develop menu in menu bar." Then, you can use Cmd + Option + I to open the developer tools.
+In the developer tools, go to the "Application" tab. This tab is where you can access various web storage options, including local storage.
+
+In the "Application" tab, expand the "Local Storage" section in the left sidebar.
+
+You will see a list of websites that have stored data in your local storage. Select the website for which you want to clear the local storage.
+
+To clear the local storage for that specific website, you can either right-click on the listed items and choose "Clear" or use the "Clear All" button, if available.
+
+Confirm the action when prompted. This will remove all data stored in local storage for that website. -->
