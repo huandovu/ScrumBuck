@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leaderboard</title>
+    <style>
+        .leaderboard {
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 300px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="homepage.html"> <img src="Scrumbucks.png" alt="logo" width="150px" height="150px"> </a>
+    </header>
+    <h1>Leaderboard</h1>
+
+    <!-- Leaderboard to display points -->
+    <div class="leaderboard">
+        <h2>Leaderboard</h2>
+        <ul id="pointsList">
+        </ul>
+    </div>
+
+    <script>
+        // Load leaderboard data from local storage
+        const leaderboardData = JSON.parse(localStorage.getItem('leaderboardData')) || {};
+
+        const pointsList = document.getElementById('pointsList');
+
+        // Function to update the leaderboard with the latest data
+        function updateLeaderboard() {
+            // Clear the existing leaderboard
+            pointsList.innerHTML = '';
+
+            // Sort leaderboard data by points (greatest to least)
+            const sortedData = Object.entries(leaderboardData).sort((a, b) => b[1] - a[1]);
+
+            // Create leaderboard items from the sorted data
+            for (const [name, points] of sortedData) {
+                const pointsItem = document.createElement('li');
+                pointsItem.textContent = `${name}: ${points} point${points !== 1 ? 's' : ''}`;
+                pointsList.appendChild(pointsItem);
+            }
+        }
+
+        // Initial leaderboard update
+        updateLeaderboard();
+    </script>
+    <button onclick="window.location='login.html'" class="logout">Log Out</button>
+</body>
+</html>

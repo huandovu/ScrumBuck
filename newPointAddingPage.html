@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Points</title>
+</head>
+<body>
+    <header>
+        <a href="homepage.html"> <img src="Scrumbucks.png" alt="logo" width="150px" height="150px"> </a>
+        <button onclick="window.location='login.html'" class="logout">Log Out</button>
+    </header>
+    <h1>Add Points</h1>
+
+    <!-- Dropdown list to select a name -->
+    <label for="nameSelect">Select a name:</label>
+    <select id="nameSelect">
+        <option value="anthony">Anthony</option>
+        <option value="ana">Ana</option>
+        <option value="srujan">Srujan</option>
+        <option value="huan">Huan</option>
+        <option value="jacob">Jacob</option>
+        <option value="vanessa">Vanessa</option>
+    </select>
+
+    <!-- "Add" button to add points -->
+    <button id="addButton">Add</button>
+
+    <script>
+        // Load leaderboard data from local storage
+        const leaderboardData = JSON.parse(localStorage.getItem('leaderboardData')) || {};
+
+        // Function to add a point to the selected name
+        document.getElementById('addButton').addEventListener('click', function () {
+            const selectedName = document.getElementById('nameSelect').value;
+
+            // Update the data in memory
+            leaderboardData[selectedName] = (leaderboardData[selectedName] || 0) + 1;
+
+            // Save the updated leaderboard data to local storage
+            localStorage.setItem('leaderboardData', JSON.stringify(leaderboardData));
+
+        });
+    </script>
+    <script>
+function openPopupPage() {
+    const popupURL = 'addPoints.html'; // Update this URL to match your page's filename
+
+    // Define the properties for the popup window
+    const popupWidth = 600;
+    const popupHeight = 400;
+    const popupOptions = `width=${popupWidth}, height=${popupHeight}, resizable=yes, scrollbars=yes`;
+
+    // Open the popup window
+    window.open(popupURL, 'AddPointsPopup', popupOptions);
+}
+</script>
+
+</body>
+</html>
