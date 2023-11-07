@@ -1,25 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Leaderboard</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home Page</title>
+        <link rel="stylesheet" href="loginPage.css">
+    </head>
     <style>
         .leaderboard {
             border: 1px solid #ccc;
             padding: 10px;
-            width: 300px;
+            width: 500px;
             margin: 0 auto;
+            font-size: 40px;
+            background-color: white;
         }
     </style>
 </head>
 <body>
     <header>
         <a href="homepage.html"> <img src="Scrumbucks.png" alt="logo" width="150px" height="150px"> </a>
+        <h1 class="center">Leaderboard</h1>
+        <button onclick="window.location='login.html'" class="logout">Log Out</button>
     </header>
-    <h1>Leaderboard</h1>
 
-    <!-- Leaderboard to display points -->
+    <button onclick="window.location='newPointAddingPage.html'">Seperate Point Adding</button><br><br>
+
+   <!-- Leaderboard to display points -->
     <div class="leaderboard">
-        <h2>Leaderboard</h2>
         <ul id="pointsList">
         </ul>
     </div>
@@ -41,7 +50,7 @@
             // Create leaderboard items from the sorted data
             for (const [name, points] of sortedData) {
                 const pointsItem = document.createElement('li');
-                pointsItem.textContent = `${name}: ${points} point${points !== 1 ? 's' : ''}`;
+                pointsItem.textContent = `${name}: ${points} tasks completed`;
                 pointsList.appendChild(pointsItem);
             }
         }
@@ -49,6 +58,5 @@
         // Initial leaderboard update
         updateLeaderboard();
     </script>
-    <button onclick="window.location='login.html'" class="logout">Log Out</button>
 </body>
 </html>

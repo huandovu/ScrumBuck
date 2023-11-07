@@ -1,28 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Add Points</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Point Adding Page</title>
+    <link rel="stylesheet" href="loginPage.css">
 </head>
 <body>
     <header>
         <a href="homepage.html"> <img src="Scrumbucks.png" alt="logo" width="150px" height="150px"> </a>
+        <h1 class="center">Point Adding Page</h1>
         <button onclick="window.location='login.html'" class="logout">Log Out</button>
     </header>
-    <h1>Add Points</h1>
+
+    <button onclick="window.location='newLeaderBoardPage.html'">Leaderboard</button><br><br>
 
     <!-- Dropdown list to select a name -->
     <label for="nameSelect">Select a name:</label>
     <select id="nameSelect">
+        <option value=""></option>
         <option value="anthony">Anthony</option>
         <option value="ana">Ana</option>
         <option value="srujan">Srujan</option>
         <option value="huan">Huan</option>
         <option value="jacob">Jacob</option>
         <option value="vanessa">Vanessa</option>
-    </select>
+    </select><br>
+    <label for="taskSelect">Select a task type:</label>
+    <select id="taskSelect">
+        <option value=""></option>
+        <option value="customerService">Customer Service</option>
+        <option value="beverage">Beverage</option>
+        <option value="food">Food</option>
+    </select><br>
+
+    <form action="process_comment.php" method="post">
+        <label for="comment">Add any additional comments:</label><br>
+        <textarea id="comment" name="comment" rows="4" cols="50" required></textarea><br>
+    </form>
+    
 
     <!-- "Add" button to add points -->
     <button id="addButton">Add</button>
+
+    <div id="successMessage" style="display: none;">The user's point has been added to the leaderboard!</div>
 
     <script>
         // Load leaderboard data from local storage
@@ -31,28 +52,38 @@
         // Function to add a point to the selected name
         document.getElementById('addButton').addEventListener('click', function () {
             const selectedName = document.getElementById('nameSelect').value;
+            // const selectedTask = document.getElementById('taskSelect').value;
+            // const comment = document.getElementById('comment').value;
+
+            // Check if a name is selected
+            if (selectedName === '') {
+                alert('Please select a name.');
+                return;
+            }
 
             // Update the data in memory
             leaderboardData[selectedName] = (leaderboardData[selectedName] || 0) + 1;
+            // leaderboardData[selectedTask] = selectedTask;
+            // leaderboardData[comment] = comment;
 
             // Save the updated leaderboard data to local storage
             localStorage.setItem('leaderboardData', JSON.stringify(leaderboardData));
 
+             // Clear the selected name and form textarea
+            document.getElementById('nameSelect').value = '';
+            document.getElementById('taskSelect').value = '';
+            document.getElementById('comment').value = '';
+
+            // Display the success message
+            const successMessage = document.getElementById('successMessage');
+            successMessage.style.display = 'block';
+
+            // Hide the success message after a few seconds (you can adjust the timeout)
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 5000); // Hide after 5 seconds (5000 milliseconds)
+
         });
     </script>
-    <script>
-function openPopupPage() {
-    const popupURL = 'addPoints.html'; // Update this URL to match your page's filename
-
-    // Define the properties for the popup window
-    const popupWidth = 600;
-    const popupHeight = 400;
-    const popupOptions = `width=${popupWidth}, height=${popupHeight}, resizable=yes, scrollbars=yes`;
-
-    // Open the popup window
-    window.open(popupURL, 'AddPointsPopup', popupOptions);
-}
-</script>
-
 </body>
 </html>

@@ -4,7 +4,8 @@ const users = {
     'srujan': 'password',
     'huan': 'password',
     'jacob': 'password',
-    'vanessa': 'password'
+    'vanessa': 'password',
+    'mentor': 'password'
 };
 
 // Save the user credentials to local storage

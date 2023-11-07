@@ -66,6 +66,9 @@ button {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
+    text-align: center;
+    margin-top: 50px;
+    margin: 5px;
 }
 
 .homeBtn {
