@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Leaderboard - Mentee View</title>
+        <link rel="stylesheet" href="loginPage.css">
+    </head>
+    <style>
+        .leaderboard {
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 500px;
+            margin: 0 auto;
+            font-size: 40px;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="Scrumbucks.png" alt="logo" width="150px" height="150px"> </a>
+        <h1 class="center">Leaderboard</h1>
+        <button onclick="window.location='login.html'" class="logout">Return to Log In</button>
+    </header>
+
+   <!-- Leaderboard to display points -->
+    <div class="leaderboard">
+        <ul id="pointsList">
+        </ul>
+    </div>
+
+    <script>
+        // Load leaderboard data from local storage
+        const leaderboardData = JSON.parse(localStorage.getItem('leaderboardData')) || {};
+
+        const pointsList = document.getElementById('pointsList');
+
+        // Function to update the leaderboard with the latest data
+        function updateLeaderboard() {
+            // Clear the existing leaderboard
+            pointsList.innerHTML = '';
+
+            // Sort leaderboard data by points (greatest to least)
+            const sortedData = Object.entries(leaderboardData).sort((a, b) => b[1] - a[1]);
+
+            // Create leaderboard items from the sorted data
+            for (const [name, points] of sortedData) {
+                const pointsItem = document.createElement('li');
+                pointsItem.textContent = `${name}: ${points} tasks completed`;
+                pointsList.appendChild(pointsItem);
+            }
+        }
+        // Initial leaderboard update
+        updateLeaderboard();
+    </script>
+</body>
+</html>

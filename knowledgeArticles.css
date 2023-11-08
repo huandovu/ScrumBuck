@@ -1,0 +1,141 @@
+body {
+    background-color: #E6E6E6;
+}
+
+.center {
+    margin: auto;
+    display: table;
+}
+
+header {
+    display: flex;
+    align-items: center;
+}
+
+h1 {
+    font-family: system-ui;
+}
+
+p {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+ul {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+button {
+    background-color: #007acc; /* Background color for the button */
+    color: #fff; /* Text color for the button */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center;
+    margin-top: 50px;
+    margin: 5px;
+}
+
+.homeBtn {
+    background-color: #006241;
+    margin: auto;
+    display: grid;
+}
+
+.logout {
+    float: right;
+    background-color: #006241;
+}
+
+/* Apply styles to the container of each knowledge article */
+.knowledge-article {
+    font-family: 'Your Chosen Font', Arial, sans-serif; /* Replace 'Your Chosen Font' with your desired font family */
+    max-width: 800px; /* Adjust the maximum width to control the content width */
+    margin: 0 auto; /* Center the article within the page by applying side margins */
+    text-align: justify; /* Justify the text for a clean and professional look */
+    padding: 20px; /* Add some padding for better readability */
+}
+  
+  /* Style headers, links, and other elements within the articles */
+.knowledge-article h1,
+.knowledge-article h2,
+.knowledge-article h3,
+.knowledge-article h4,
+.knowledge-article h5,
+.knowledge-article h6 {
+    /* Style your headings as desired */
+    font-weight: bold;
+    margin: 20px 0;
+}
+  
+.knowledge-article a {
+color: #0074b3; /* Set the link color to a visually pleasing color */
+text-decoration: underline; /* Underline links to make them stand out */
+}
+
+.knowledge-article a:hover {
+text-decoration: none; /* Remove the underline on hover for a subtle effect */
+}
+
+/* Style lists (unordered and ordered) within the articles */
+.knowledge-article ul,
+.knowledge-article ol {
+margin: 0 0 20px 20px; /* Add indentation for list items */
+}
+
+/* Style list items */
+.knowledge-article li {
+margin: 5px 0; /* Adjust spacing between list items */
+}
+
+/* Add a border to separate articles, if desired */
+.knowledge-article {
+border: 1px solid #ddd; /* Add a light border to separate articles */
+border-radius: 5px; /* Apply rounded corners for a modern look */
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+background-color: #fff; /* Set a white background color */
+}
+
+/* Style blockquotes, if used in articles */
+.knowledge-article blockquote {
+margin: 0 0 20px 20px; /* Add indentation to blockquotes */
+border-left: 4px solid #0074b3; /* Add a left border for emphasis */
+padding: 10px; /* Add padding to blockquotes for readability */
+}
+
+/* Style code snippets, if used in articles */
+.knowledge-article pre {
+background-color: #f8f8f8; /* Set a light gray background for code blocks */
+padding: 10px; /* Add padding for code readability */
+border: 1px solid #ddd; /* Add a border for separation */
+border-radius: 5px; /* Apply rounded corners */
+overflow: auto; /* Add a scrollbar for long code blocks */
+font-family: 'Courier New', monospace; /* Use a monospaced font for code */
+}
+
+/* Style images within the articles */
+.knowledge-article img {
+max-width: 100%; /* Ensure images don't exceed their container width */
+height: auto; /* Maintain aspect ratio */
+margin: 10px 0; /* Add margin to separate images from text */
+}
+
+/* Style tables within the articles */
+.knowledge-article table {
+width: 100%;
+border-collapse: collapse;
+margin: 20px 0;
+}
+
+.knowledge-article th, .knowledge-article td {
+border: 1px solid #ddd;
+padding: 8px;
+text-align: left;
+}
+
+/* Add hover effect for tables */
+.knowledge-article tr:hover {
+background-color: #f5f5f5;
+}
+  
