@@ -13,7 +13,7 @@
         <button onclick="window.location='login.html'" class="logout">Log Out</button>
     </header>
 
-    <button onclick="window.location='newLeaderBoardPage.html'">Click here to view the Leaderboard!</button><br><br>
+    <br><br>
 
     <div class="center">
         <!-- Dropdown list to select a name -->
@@ -33,14 +33,18 @@
         <form action="process_comment.php" method="post">
             <label for="comment">Add any additional comments:</label><br>
             <textarea id="comment" name="comment" rows="4" cols="50" required></textarea><br>
-        </form><br>
+        </form>
         <!-- "Add" button to add points -->
         <button id="addButton" class="center">Add Point</button>
     </div>
 
-    
-
     <div id="successMessage" style="display: none;">The user's point has been added to the leaderboard!</div>
+
+    <br><br>
+
+    <div class="button-container">
+        <button onclick="window.location='newLeaderBoardPage.html'">Click here to view the Leaderboard!</button><br><br>
+    </div>
 
     <script>
         // Load leaderboard data from local storage
