@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Point Adding Page</title>
-    <link rel="stylesheet" href="loginPage.css">
+    <link rel="stylesheet" href="pointAddingPage.css">
 </head>
 <body>
     <header>
@@ -13,29 +13,32 @@
         <button onclick="window.location='login.html'" class="logout">Log Out</button>
     </header>
 
-    <button onclick="window.location='newLeaderBoardPage.html'">Leaderboard</button><br><br>
+    <button onclick="window.location='newLeaderBoardPage.html'">Click here to view the Leaderboard!</button><br><br>
 
-    <!-- Dropdown list to select a name -->
-    <label for="nameSelect">Select a name:</label>
-    <select id="nameSelect">
-        <option value=""></option>
-    </select><br>
+    <div class="center">
+        <!-- Dropdown list to select a name -->
+        <label for="nameSelect">Select a name: </label>
+        <select id="nameSelect">
+            <option value=""></option>
+        </select><br><br>
 
-    <label for="taskSelect">Select a task type:</label>
-    <select id="taskSelect">
-        <option value=""></option>
-        <option value="customerService">Customer Service</option>
-        <option value="beverage">Beverage</option>
-        <option value="food">Food</option>
-    </select><br>
+        <label for="taskSelect">Select a task type: </label>
+        <select id="taskSelect">
+            <option value=""></option>
+            <option value="customerService">Customer Service</option>
+            <option value="beverage">Beverage</option>
+            <option value="food">Food</option>
+        </select><br><br>
 
-    <form action="process_comment.php" method="post">
-        <label for="comment">Add any additional comments:</label><br>
-        <textarea id="comment" name="comment" rows="4" cols="50" required></textarea><br>
-    </form>
+        <form action="process_comment.php" method="post">
+            <label for="comment">Add any additional comments:</label><br>
+            <textarea id="comment" name="comment" rows="4" cols="50" required></textarea><br>
+        </form><br>
+        <!-- "Add" button to add points -->
+        <button id="addButton" class="center">Add Point</button>
+    </div>
 
-    <!-- "Add" button to add points -->
-    <button id="addButton">Add</button>
+    
 
     <div id="successMessage" style="display: none;">The user's point has been added to the leaderboard!</div>
 
