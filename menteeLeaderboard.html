@@ -1,59 +1,98 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Leaderboard - Mentee View</title>
-        <link rel="stylesheet" href="loginPage.css">
-    </head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard - Mentee View</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
+        body {
+            font-family: Arial, sans-serif; 
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0; 
+        }
+
+        header {
+            background-color: #333; 
+            color: #fff; 
+            text-align: center;
+            padding: 20px;
+        }
+
+        header h1 {
+            font-size: 36px; 
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .logout {
+            background-color: #ff3333; 
+            color: #fff; 
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
         .leaderboard {
             border: 1px solid #ccc;
-            padding: 10px;
-            width: 500px;
+            background-color: #fff;
+            max-width: 800px; 
             margin: 0 auto;
-            font-size: 40px;
-            background-color: white;
+            padding: 20px;
+        }
+
+        ul {
+            list-style-type: none; 
+            padding: 0;
+        }
+
+        li {
+            font-size: 18px;
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
     <header>
-        <img src="Scrumbucks.png" alt="logo" width="150px" height="150px"> </a>
+        <img src="Scrumbucks.png" alt="logo" width="150" height="150">
         <h1 class="center">Leaderboard</h1>
         <button onclick="window.location='login.html'" class="logout">Return to Log In</button>
     </header>
 
-   <!-- Leaderboard to display points -->
+
     <div class="leaderboard">
         <ul id="pointsList">
         </ul>
     </div>
 
     <script>
-        // Load leaderboard data from local storage
-        const leaderboardData = JSON.parse(localStorage.getItem('leaderboardData')) || {};
+           // Load leaderboard data from local storage
+           const leaderboardData = JSON.parse(localStorage.getItem('leaderboardData')) || {};
 
-        const pointsList = document.getElementById('pointsList');
+const pointsList = document.getElementById('pointsList');
 
-        // Function to update the leaderboard with the latest data
-        function updateLeaderboard() {
-            // Clear the existing leaderboard
-            pointsList.innerHTML = '';
+// Function to update the leaderboard with the latest data
+function updateLeaderboard() {
+    // Clear the existing leaderboard
+    pointsList.innerHTML = '';
 
-            // Sort leaderboard data by points (greatest to least)
-            const sortedData = Object.entries(leaderboardData).sort((a, b) => b[1] - a[1]);
+    // Sort leaderboard data by points (greatest to least)
+    const sortedData = Object.entries(leaderboardData).sort((a, b) => b[1] - a[1]);
 
-            // Create leaderboard items from the sorted data
-            for (const [name, points] of sortedData) {
-                const pointsItem = document.createElement('li');
-                pointsItem.textContent = `${name}: ${points} tasks completed`;
-                pointsList.appendChild(pointsItem);
-            }
-        }
-        // Initial leaderboard update
-        updateLeaderboard();
+    // Create leaderboard items from the sorted data
+    for (const [name, points] of sortedData) {
+        const pointsItem = document.createElement('li');
+        pointsItem.textContent = `${name}: ${points} tasks completed`;
+        pointsList.appendChild(pointsItem);
+    }
+}
+// Initial leaderboard update
+updateLeaderboard();
     </script>
 </body>
 </html>

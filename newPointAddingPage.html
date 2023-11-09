@@ -19,13 +19,8 @@
     <label for="nameSelect">Select a name:</label>
     <select id="nameSelect">
         <option value=""></option>
-        <option value="anthony">Anthony</option>
-        <option value="ana">Ana</option>
-        <option value="srujan">Srujan</option>
-        <option value="huan">Huan</option>
-        <option value="jacob">Jacob</option>
-        <option value="vanessa">Vanessa</option>
     </select><br>
+
     <label for="taskSelect">Select a task type:</label>
     <select id="taskSelect">
         <option value=""></option>
@@ -38,7 +33,6 @@
         <label for="comment">Add any additional comments:</label><br>
         <textarea id="comment" name="comment" rows="4" cols="50" required></textarea><br>
     </form>
-    
 
     <!-- "Add" button to add points -->
     <button id="addButton">Add</button>
@@ -49,11 +43,27 @@
         // Load leaderboard data from local storage
         const leaderboardData = JSON.parse(localStorage.getItem('leaderboardData')) || {};
 
+        // Function to populate the name dropdown with users
+        function populateNameDropdown() {
+            const nameSelect = document.getElementById('nameSelect');
+            const users = JSON.parse(localStorage.getItem('users')) || {};
+
+            for (const username in users) {
+                const option = document.createElement('option');
+                option.value = username;
+                option.textContent = username;
+                nameSelect.appendChild(option);
+            }
+        }
+
+        // Call the function to populate the name dropdown when the page loads
+        window.addEventListener('load', populateNameDropdown);
+
         // Function to add a point to the selected name
         document.getElementById('addButton').addEventListener('click', function () {
             const selectedName = document.getElementById('nameSelect').value;
-            // const selectedTask = document.getElementById('taskSelect').value;
-            // const comment = document.getElementById('comment').value;
+            const selectedTask = document.getElementById('taskSelect').value;
+            const comment = document.getElementById('comment').value;
 
             // Check if a name is selected
             if (selectedName === '') {
@@ -63,8 +73,6 @@
 
             // Update the data in memory
             leaderboardData[selectedName] = (leaderboardData[selectedName] || 0) + 1;
-            // leaderboardData[selectedTask] = selectedTask;
-            // leaderboardData[comment] = comment;
 
             // Save the updated leaderboard data to local storage
             localStorage.setItem('leaderboardData', JSON.stringify(leaderboardData));
